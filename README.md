@@ -12,7 +12,7 @@ I have also included a parameter that allows you to tune how much the moving ave
 ### Expnenial moving average (EMA)
 Very similar to the simple moving average, this strategy takes the previous n days worth of data and averages them, but it gives more weight to the more recent days. 
 As with he simple average if the price is above the EMA then you buy, if the price is below you sell. 
-### Moving crossover strategy (XMA)
+### Crossover moving strategy (XMA)
 In this strategy we take two simple averages, one over a short period, and one over a long period.
 When the short period average is above the long we take this as a sign that the price will be trending up and we buy, similarly when the price is below we sell. 
 This is designed to take out some of the noise of the simple approach as it wont send a signal based on just a single day if the movement isn’t very large.
