@@ -70,7 +70,9 @@ The backtester will output the returns on 1 cash being put from the start of the
 
 The win rate takes the number of buy signals and after a buy signal does your returns value increase. It works out the percentage of times you get a positive return after a buy signal. This is the true positive ratio. Arguably this number is more inportant than the win rate. Given that is generally easy to improve your position in a bull market the win rate will eliminate some of the timing luck that the returns numnber will show.
 
-### the graphs, I have included these to show how the retuns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
+### The graphs
+
+I have included these to show how the retuns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
 
 ## Bonus 
 The coin filip might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
