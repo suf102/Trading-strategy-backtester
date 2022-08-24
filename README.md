@@ -1,7 +1,8 @@
 # Ta-Backtester
 ## Running SMA, EMA, and Crossover moving strategies through a backtester. (edit I added an RSI strategy)
 I have coded up a little backtester you can use to see how different technical analysis strategies work. This was originally based on the backtester by @filthyquant on tiktok.
-I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. 
+I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. If someone isnt interested in the code there is a section near the bottom where all of the parameters can be changed, just edit as your please and run all. 
+(Bonus: at the very bottom there is a cell that will execute the coin flip stratgy n times and averages the results, so convice yourself on its results on average) 
 
 ## The strategies 
 
@@ -62,3 +63,6 @@ You will notice when the code is run there will be win rates shown, the win rate
 
 ## Bonus 
 The coin filip might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
+
+## Additional work
+I think this would be a prime candidate for mercury interactive webpage for people to tweak perameters to see the results, circumventing the code part. 
