@@ -78,4 +78,6 @@ I have included these to show how the retuns will change over time with SMA, EMA
 The coin filip might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
 
 ## Additional work
-I think this would be a prime candidate for mercury interactive webpage for people to tweak perameters to see the results, circumventing the code part. 
+First, I think this would be a prime candidate for mercury interactive webpage for people to tweak perameters to see the results, circumventing the code part. 
+
+Second, Jit or multipool could be used to speed up some of the calculations.
