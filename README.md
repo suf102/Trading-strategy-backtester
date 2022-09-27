@@ -34,6 +34,12 @@ Testperiod: how far back do you want to test, standard syntax, 1m, 30d, 30y etc.
 
 Datatype: Which data do you want to pull, the tester is currently only set up to use one bit of data from each period, I would suggest ‘Close’
 
+interval1: The period of data that we want to consdier, for the week end close or day close etc. 
+
+rrr: The risk free rate of return, the rate of return that we would expect from an asset that has no risk, typically this is the us 10 year treasury bond for the relevent period. 
+
+tradingdays: The number of days that the the stock that we are using is traded, it might be 365 for some stocks 255 for those only traded on weekdays.
+
 Tcost: this parameter adds in a transaction cost on each trade as a percentage of the trade, 0.01 would be a 1% transaction cost.
 
 Shortdays: this number is the number of days in the simple moving average, exponential moving average and the moving crossover strategy
