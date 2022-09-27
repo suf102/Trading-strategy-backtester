@@ -70,7 +70,11 @@ The backtester will output the returns on 1 cash being put from the start of the
 
 The win rate takes the number of buy signals and after a buy signal does your returns value increase. It works out the percentage of times you get a positive return after a buy signal. This is the true positive ratio. Arguably this number is more inportant than the win rate. Given that is generally easy to improve your position in a bull market the win rate will eliminate some of the timing luck that the returns numnber will show.
 
-### The graphs
+### Sharpe ratio
+
+The Sharpe ratio of a strategy is a ratio that expressed the difference between the garenteed rate of return and returns from the strategy in question. Formally it is annualised rate of return minus the ganreteed rate of return (often the annual return on US 10 year tresury bonds, but in this case it is just entered by the user) divided by the annualised standard deviation. 
+
+## The graphs
 
 I have included these to show how the retuns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
 
