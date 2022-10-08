@@ -1,6 +1,6 @@
 # Trading Strategy Backtester
 
-I have coded up a little backtester you can use to see how different technical analysis strategies work. This was originally based on the backtester by @filthyquant on tiktok.
+I have coded up a little backtester you can use to see how different technical analysis strategies work and how well they will perform. This was originally based on the backtester by @filthyquant on tiktok.
 I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. If someone isnt interested in the code there is a section near the bottom where all of the parameters can be changed, just edit as your please and run all. 
 (Bonus: at the very bottom there is a cell that will execute the coin flip stratgy n times and averages the results, so convice yourself on its results on average) 
 
