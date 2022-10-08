@@ -92,4 +92,4 @@ The coin filip might do really well or really badly when you run it, so to get a
 ## Additional work
 First, I think this would be a prime candidate for mercury interactive webpage for people to tweak perameters to see the results, circumventing the code part. 
 
-Second, Jit or multipool could be used to speed up some of the calculations.
+Second, Jit or multipool could be used to speed up some of the calculations.\
