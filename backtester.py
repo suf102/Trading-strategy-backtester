@@ -1,71 +1,13 @@
-<<<<<<< HEAD
-#now that we have the data make a back tester to check if it will work take the two collumns the price 
-=======
-import yfinance as yf
-import pandas   as pd
-import numpy    as np
-import random
-from numba import jit, njit, types, vectorize, prange
-import plotly.express as plt
 
 
+ 
 def getdata(stockname,testperiod, datatype, interval1):
     yfdata = yf.Ticker("{}".format(stockname)).history(period=str(testperiod),interval = interval1)
     closedata = yfdata[datatype].copy()
     return closedata
 
->>>>>>> fe68ef0 (	new file:   backtester.py)
-
 def backtester(signals,price, tcost = 0.001):
 
-#Make a quick numpy array to save the money that willbe made for posible value that the stock could be sold at and the cash on hand, start with one dollar so its not empty.
-
-<<<<<<< HEAD
-        pos_val = np.zeros(np.shape(price))
-        cash    = np.zeros(np.shape(price))
-        cash[0] = 1
-        
-        #loop throgh each day as though we are going through and actually implementing the strategy as we go
-
-        for i,val in enumerate(price):
-            
-            #if we are on the last day exit the loop we are done.
-
-            if i == len(price)-1:
-                break
-            
-            # if the signal that that day is to sell the on the next day we should have the possible value of the coin, 
-            # times the price of the coin times the brokerage costs plus the money we had perviously.
-            # We also sell all of the coin that we have so the possible value left to us is zero
-
-            if signals[i] == -1:
-
-                cash[i+1] = (pos_val[i] * val * (1-tcost)) + cash[i]
-                pos_val[i+1] = 0
-                
-            #If the signal that day is to buy, what we will do is take all of the cash that we have, divide it by the cost of the coin to work out how many we can buy
-            #factoring in the cost of the brockerage, we then add it to any stock we held from the pervious day
-
-            elif signals[i] == 1:
-
-                pos_val[i+1] = (cash[i] / val)*((1-tcost)) + pos_val[i]
-                cash[i+1] = 0
-                
-            # Lastly we need to define the do nothng clause. this will not make a buy or a sell, we do need to update the position value to be the number of stocks/coins we own times that days price
-                
-            elif signals[i] == 0:
-                
-                pos_val[i+1] = pos_val[i]/price[i]*price[i+1]
-                cash[i+1] = cash[i]
-                
-        #then our returns are the amount of cash left each day plus the the price times the amoint of coin that we have
-
-        returns = [a*b for a,b in zip(pos_val,price)] + cash
-        
-        #lastly we turn this into a data frame too
-        
-        return pd.DataFrame(returns, index = price.index)
-=======
     pos_val = np.zeros(np.shape(price))
     cash    = np.zeros(np.shape(price))
     cash[0] = 1
@@ -110,7 +52,6 @@ def backtester(signals,price, tcost = 0.001):
     #lastly we turn this into a data frame too
     
     return pd.DataFrame(returns, index = price.index)
->>>>>>> fe68ef0 (	new file:   backtester.py)
     
 def winrate(data,returns):
 
