@@ -1,6 +1,11 @@
+import yfinance as yf
+import pandas   as pd
+import numpy    as np
+import random
+from numba import jit, njit, types, vectorize, prange
+import plotly.express as plt
 
 
- 
 def getdata(stockname,testperiod, datatype, interval1):
     yfdata = yf.Ticker("{}".format(stockname)).history(period=str(testperiod),interval = interval1)
     closedata = yfdata[datatype].copy()
@@ -12,7 +17,7 @@ def backtester(signals,price, tcost = 0.001):
     cash    = np.zeros(np.shape(price))
     cash[0] = 1
     
-    #loop throgh each day as though we are going through and actually implementing the strategy as we go
+    #loop through each day as though we are going through and actually implementing the strategy as we go
 
     for i,val in enumerate(price):
         
@@ -38,7 +43,7 @@ def backtester(signals,price, tcost = 0.001):
             pos_val[i+1] = (cash[i] / val)*((1-tcost)) + pos_val[i]
             cash[i+1] = 0
             
-        # Lastly we need to define the do nothng clause. this will not make a buy or a sell, we do need to update the position value to be the number of stocks/coins we own times that days price
+        # Lastly we need to define the do nothing clause. this will not make a buy or a sell, we do need to update the position value to be the number of stocks/coins we own times that days price
             
         elif signals[i] == 0:
             
@@ -55,7 +60,7 @@ def backtester(signals,price, tcost = 0.001):
     
 def winrate(data,returns):
 
-#make an enmpty list to store the number of trades made that were money making. 
+#make an empty list to store the number of trades made that were money making. 
 
     tps = []
 
@@ -67,7 +72,7 @@ def winrate(data,returns):
 
     rets = (returns.pct_change()).shift(1).dropna().values.ravel()
 
-    #Record a posative signal every time a trade is made and it results in a posative return.
+    #Record a positive signal every time a trade is made and it results in a positive return.
     
     for i,val in enumerate(sigs):  
         if (sigs[i] == 1 and rets[i]>0):
@@ -85,7 +90,7 @@ def winrate(data,returns):
     signals, counts = np.unique(sigs, return_counts=True )
     possignals = dict(zip(signals,counts))[1]
 
-    #take the number of buy signals that result in a posative return the next day and divide it by the total number of posative sugnals to work out hte true posative score.
+    #take the number of buy signals that result in a positive return the next day and divide it by the total number of positive signals to work out hte true positive score.
 
     win_rate = sum(tps)/possignals
     return win_rate
@@ -97,13 +102,14 @@ def Sharperatio(returns,tradingdays,rrr):
     
     lastyearreturns = returns.tail(tradingdays).pct_change().dropna()
     
-    # Then working out the sharpe ratio, which is defined as the annuklised rate of return minus the garenteed rate of return divided by the standard deviation
+    # Then working out the sharpe ratio, which is defined as the annualized rate of return minus the guaranteed rate of return divided by the standard deviation
     # of hte returns we need to make sure that we multiply by the 
     
-    # Note that we are multiplying the standard deviation by the square root of the trading days, this is because it needs to be the annualised
+    # Note that we are multiplying the standard deviation by the square root of the trading days, this is because it needs to be the annualized
     # Standard deviation, the daily rate.
 
     
     sharperatio = (lastyearreturns.mean() * tradingdays - rrr)/(lastyearreturns.std()* np.sqrt(tradingdays))
     
     return sharperatio 
+
