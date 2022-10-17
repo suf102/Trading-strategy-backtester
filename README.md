@@ -4,9 +4,19 @@ I have coded up a backtester you can use to see how different trading strategies
 I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. If someone isn't interested in the code there is a section near the bottom where all of the parameters can be changed, just edit as your please and run all. 
 (Bonus: at the very bottom there is a cell that will execute the coin flip strategy n times and averages the results, so convince yourself on its results on average.)
 
+# Momentum Strategy 
+
+See Momentum_Strategy.ipynb
+
+This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
+The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward 
+
+# Technical Analysis strategy tester
+
+See Trading_Strategy_Backtester.ipynb 
+Here I have layed out four strategies 
 ### Note: This is not an endorsement of technical analysis, rather this is simply an interactive piece to let people see how those strategies would fare with various parameters.
 
-### Edit I have added in a absolute momentum strategy based on this paper https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2244633. This can be found in a separate notebook entitled Momentum_strategy.ipynb .  
 ## The strategies 
 
 ### Simple moving average (SMA)

@@ -26,16 +26,16 @@ def backtester(signals,price, tcost = 0.001):
         if i == len(price)-1:
             break
         
-        # if the signal that that day is to sell the on the next day we should have the possible value of the coin, 
-        # times the price of the coin times the brokerage costs plus the money we had perviously.
-        # We also sell all of the coin that we have so the possible value left to us is zero
+        # if the signal that that day is to sell the on the next day we should have the possible value of the security, 
+        # times the price of the security times the brokerage costs plus the money we had perviously.
+        # We also sell all of the security that we have so the possible value left to us is zero
 
         if signals[i] == -1:
 
             cash[i+1] = (pos_val[i] * val * (1-tcost)) + cash[i]
             pos_val[i+1] = 0
             
-        #If the signal that day is to buy, what we will do is take all of the cash that we have, divide it by the cost of the coin to work out how many we can buy
+        #If the signal that day is to buy, what we will do is take all of the cash that we have, divide it by the cost of the security to work out how many we can buy
         #factoring in the cost of the brockerage, we then add it to any stock we held from the pervious day
 
         elif signals[i] == 1:
@@ -43,7 +43,7 @@ def backtester(signals,price, tcost = 0.001):
             pos_val[i+1] = (cash[i] / val)*((1-tcost)) + pos_val[i]
             cash[i+1] = 0
             
-        # Lastly we need to define the do nothing clause. this will not make a buy or a sell, we do need to update the position value to be the number of stocks/coins we own times that days price
+        # Lastly we need to define the do nothing clause. this will not make a buy or a sell, we do need to update the position value to be the number of stocks/securitys we own times that days price
             
         elif signals[i] == 0:
             
