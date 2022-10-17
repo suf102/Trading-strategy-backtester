@@ -9,7 +9,6 @@ I have tried to comment the code in such a way that someone with relatively litt
 # Technical Analysis strategy tester
 
 See Trading_Strategy_Backtester.ipynb 
-Here I have layed out four strategies 
 ### Note: This is not an endorsement of technical analysis, rather this is simply an interactive piece to let people see how those strategies would fare with various parameters.
 
 ## The strategies 
@@ -62,9 +61,9 @@ Overbuy: this is the threshold above which the security is being “overbought�
 
 Oversell: this is the threshold below which we might think the security is being “oversold” between 0-100, must be below over buy. 
 
-Probbuy: for the coin filp chance of buying between 0-1. 
+Probbuy: for the coin flip chance of buying between 0-1. 
 
-Probsell: for the coin filp the chance of selling between 0-1.
+Probsell: for the coin flip the chance of selling between 0-1.
 
 Probdonothing: for the coin flip the chance of doing nothing.
 
@@ -86,14 +85,14 @@ The win rate takes the number of buy signals and after a buy signal does your re
 
 ### Sharpe ratio
 
-The Sharpe ratio of a strategy is a ratio that expressed the difference between the guaranteed rate of return and returns from the strategy in question. Formally it is annualized rate of return minus the garenteed rate of return (often the annual return on US 10 year treasury bonds, but in this case it is just entered by the user) divided by the annualized standard deviation. 
+The Sharpe ratio of a strategy is a ratio that expressed the difference between the guaranteed rate of return and returns from the strategy in question. Formally it is annualized rate of return minus the guaranteed rate of return (often the annual return on US 10 year treasury bonds, but in this case it is just entered by the user) divided by the annualized standard deviation. 
 
 ## The graphs
 
-I have included these to show how the retuns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
+I have included these to show how the returns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
 
 ## Bonus 
-The coin filp might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
+The coin flip might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
 
 
 # Momentum Strategy 
@@ -101,18 +100,25 @@ The coin filp might do really well or really badly when you run it, so to get an
 See Momentum_Strategy.ipynb
 
 This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
+
+## The Strategy
+
 The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward and above the three month treasury return then it buys, else it sells. 
 
 ## Parameters
 
 secname: The name of the security to back test over.
 
-formation: How many months to look back over, to determin which direction the momentum is going. 
+formation: How many months to look back over, to determine which direction the momentum is going. 
 
-Guarenteed_rate_of_return: The safe rate of return to be used as a benchmark to calculate the Sharpe Ratio over the last year of trading. 
+Guaranteed_rate_of_return: The safe rate of return to be used as a benchmark to calculate the Sharpe Ratio over the last year of trading. 
 
 transaction_costs: The costs of entering or exiting any position.
 
 ## Results
 
-The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy.
+The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy. These metric are the same as above.
+
+## The Graphs
+
+Lastly I have included a graph of the returns over time and a graph of the price of the security we are backtesting. 
