@@ -9,7 +9,21 @@ I have tried to comment the code in such a way that someone with relatively litt
 See Momentum_Strategy.ipynb
 
 This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
-The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward 
+The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward and above the three month treasury return then it buys, else it sells. 
+
+## Parameters
+
+secname: The name of the security to back test over.
+
+formation: How many months to look back over, to determin which direction the momentum is going. 
+
+Guarenteed_rate_of_return: The safe rate of return to be used as a benchmark to calculate the Sharpe Ratio over the last year of trading. 
+
+transaction_costs: The costs of entering or exiting any position.
+
+## Results
+
+The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy.
 
 # Technical Analysis strategy tester
 
