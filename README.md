@@ -4,7 +4,8 @@ I have coded up a backtester you can use to see how different trading strategies
 I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. If someone isn't interested in the code there is a section near the bottom where all of the parameters can be changed, just edit as your please and run all. 
 (Bonus: at the very bottom there is a cell that will execute the coin flip strategy n times and averages the results, so convince yourself on its results on average.)
 
-## Edit, there are now three files in this backtester, the first is a technical analysis strategy backtester, where I have implemented four common strategies. In the second second I have implemented a time series momentum strategy.  Lastly I have the bactester.py file that contains some of the frequently used utilities I will call on. Below I have an explanation of each of the files.  
+## Edit:
+### There are now three files in this backtester, the first is a technical analysis strategy backtester, where I have implemented four common strategies. In the second second I have implemented a time series momentum strategy.  Lastly I have the bactester.py file that contains some of the frequently used utilities I will call on. Below I have an explanation of each of the files.  
 
 # Technical Analysis strategy tester
 
