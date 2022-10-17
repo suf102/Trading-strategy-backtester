@@ -4,26 +4,7 @@ I have coded up a backtester you can use to see how different trading strategies
 I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. If someone isn't interested in the code there is a section near the bottom where all of the parameters can be changed, just edit as your please and run all. 
 (Bonus: at the very bottom there is a cell that will execute the coin flip strategy n times and averages the results, so convince yourself on its results on average.)
 
-# Momentum Strategy 
-
-See Momentum_Strategy.ipynb
-
-This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
-The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward and above the three month treasury return then it buys, else it sells. 
-
-## Parameters
-
-secname: The name of the security to back test over.
-
-formation: How many months to look back over, to determin which direction the momentum is going. 
-
-Guarenteed_rate_of_return: The safe rate of return to be used as a benchmark to calculate the Sharpe Ratio over the last year of trading. 
-
-transaction_costs: The costs of entering or exiting any position.
-
-## Results
-
-The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy.
+## Edit, there are now two files in this backtester, the first is a technical analysis strategy backtester, where I have implemented four common strategies. In the second second I have implemented a time series momentum strategy. Below I have an explination of each of the files. 
 
 # Technical Analysis strategy tester
 
@@ -114,7 +95,24 @@ I have included these to show how the retuns will change over time with SMA, EMA
 ## Bonus 
 The coin filp might do really well or really badly when you run it, so to get an average at the bottom of the notebook there is a cell that will run the coin flip 1000 times just to work out some averages. 
 
-## Additional work
-First, I think this would be a prime candidate for mercury interactive webpage for people to tweak perameters to see the results, circumventing the code part. 
 
-Second, Jit or multipool could be used to speed up some of the calculations.\
+# Momentum Strategy 
+
+See Momentum_Strategy.ipynb
+
+This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
+The bactester applies a time series momentum strategy, this strategy looks back over the previous n months, if the momentum is upward and above the three month treasury return then it buys, else it sells. 
+
+## Parameters
+
+secname: The name of the security to back test over.
+
+formation: How many months to look back over, to determin which direction the momentum is going. 
+
+Guarenteed_rate_of_return: The safe rate of return to be used as a benchmark to calculate the Sharpe Ratio over the last year of trading. 
+
+transaction_costs: The costs of entering or exiting any position.
+
+## Results
+
+The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy.
