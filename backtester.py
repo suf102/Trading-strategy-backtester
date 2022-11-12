@@ -4,6 +4,7 @@ import numpy    as np
 import random
 from numba import jit, njit, types, vectorize, prange
 import plotly.express as plt
+import fundamentalanalysis
 
 
 def getdata(stockname,testperiod, datatype, interval1):
