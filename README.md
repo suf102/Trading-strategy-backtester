@@ -7,6 +7,8 @@ I have tried to comment the code in such a way that someone with relatively litt
 ## Edit:
 ### There are now three files in this backtester, the first is a technical analysis strategy backtester, where I have implemented four common strategies. In the second second I have implemented a time series momentum strategy.  Lastly I have the bactester.py file that contains some of the frequently used utilities I will call on. Below I have an explanation of each of the files.  
 
+# Backtester.py
+
 # Technical Analysis strategy tester
 
 See Trading_Strategy_Backtester.ipynb 
