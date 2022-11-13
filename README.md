@@ -90,6 +90,8 @@ The Sharpe ratio of a strategy is a ratio that expressed the difference between 
 
 ### Maximum Drawdown 
 
+The maximum draw down represents the biggest loss possible if one was to enter the market at its peak and leave at its trough. This is a good measure of what the worst case scenario would be if one was to implement this strategy during one of the histoirical periods. 
+
 ## The graphs
 
 I have included these to show how the returns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
@@ -120,7 +122,7 @@ transaction_costs: The costs of entering or exiting any position.
 
 ## Results
 
-The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio and final returns of employing this momentum strategy. These metric are the same as above.
+The backtester will output a graph of the final returns over time, the win rate and Sharpe ratio, final returns and maximum Drawdown of employing this momentum strategy. These metric are the same as above.
 
 ## The Graphs
 
