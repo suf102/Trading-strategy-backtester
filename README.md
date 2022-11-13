@@ -6,7 +6,7 @@ I have tried to comment the code in such a way that someone with relatively litt
 ### There are now three files in this backtester, the first is Backtester.py this contains the testing and metric producing code. In Momentum_Strategy.ipynb, I have implemented a time series momentum strategy taken from a paper on absoloute momentum. Lastly Trading_Strategy_Backtester, where I have implemented a few common strategies TA, just to showcase their actual performance. 
 # Backtester.py
 
-This file contains the code that will run the backtests and produce metrics on the 
+This file contains the code that will run the backtests and produce metrics the performance of the trading strategies. The Metrics that I have included thus far are, final returns, win rate, Sharpe Ration and Maximum Drawdown. It also includes two backtesters, the first of which takes the signals and has one sell to cash, the other has one sell and purchase US treasury Bills for one month. 
 
 # Technical Analysis strategy tester
 
