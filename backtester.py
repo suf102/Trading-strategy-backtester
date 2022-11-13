@@ -6,14 +6,15 @@ from numba import jit, njit, types, vectorize, prange
 import plotly.express as plt
 import fundamentalanalysis as fa
 
-def Balancesheet(symbol):
-    fa.balance_sheet(symbol)
-
+# This function will get the price data from Yfinance and place it into a pandas dataframe.
 
 def getdata(stockname,testperiod, datatype, interval1):
     yfdata = yf.Ticker("{}".format(stockname)).history(period=str(testperiod),interval = interval1)
     closedata = yfdata[datatype].copy()
     return closedata
+
+# This will backtest liquidating the position when a sell signal is sent and spending all available cash when a buy signal is sent. 
+# It will then calculate the calmative protfolio value.
 
 def backtester(signals,price, tcost = 0.001):
 
@@ -61,6 +62,52 @@ def backtester(signals,price, tcost = 0.001):
     #lastly we turn this into a data frame too
     
     return pd.DataFrame(returns, index = price.index)
+
+#Similar to the backtester above, this backterter will not hold cash, rather it will hold US trasury Tbills at their present value.
+#Note that this backtester will only work over monthly data as it is set up for holding those TBills for one month.
+
+
+def backtestert(signals,price,tbill ,  tcost = 0.001,):
+
+#Make a quick numpy array to save the money that will be made for possible value that the stock could be sold at and the cash on hand, start with one dollar so its not empty.
+
+        pos_val = np.zeros(np.shape(price))
+        cash    = np.zeros(np.shape(price))
+        cash[0] = 1
+        
+        #loop through each day as though we are going through and actually implementing the strategy as we go
+
+        for i,val in enumerate(price):
+            
+            #if we are on the last day exit the loop we are done.
+
+            if i == len(price)-1:
+                break
+            
+            # The number we are given for the 3 month bill is the annualized yield, however we might only want to hold this bill for a month, so we need to work out the monthly returns on the bill.
+
+            if signals[i] == -1:
+
+                cash[i+1] = (pos_val[i] * val * (1-tcost)) + cash[i]*(1+(tbill[i]/12)/100)
+                pos_val[i+1] = 0
+                
+            #If the signal that day is to buy, what we will do is take all of the cash that we have, divide it by the cost of the security to work out how many we can buy
+            #factoring in the cost of the brockerage, we then add it to any stock we held from the pervious day
+
+            elif signals[i] == 1:
+
+                pos_val[i+1] = (cash[i] / val)*((1-tcost)) + pos_val[i]
+                cash[i+1] = 0
+
+        #then our returns are the amount of cash left each day plus the the price times the amount of the security that we have
+
+        returns = [a*b for a,b in zip(pos_val,price)] + cash
+        
+        #lastly we turn this into a data frame too
+        
+        return pd.DataFrame(returns, index = price.index)
+    
+# This function calculates the true positive win rate of of a strategy, i.e. how many times did a positive buy signal result in an increase in the portfolio value in the next period, divided by the number positive buy signals did we get
     
 def winrate(data,returns):
 
@@ -99,6 +146,8 @@ def winrate(data,returns):
     win_rate = sum(tps)/possignals
     return win_rate
 
+# The sharpe ratio works out the retuns 
+
 def Sharperatio(returns,tradingdays,rrr):
     
     #First thing to do is to work out the percentage change in the returns for the last year, note that depending on what we are trading there
@@ -116,6 +165,9 @@ def Sharperatio(returns,tradingdays,rrr):
     sharperatio = (lastyearreturns.mean() * tradingdays - rrr)/(lastyearreturns.std()* np.sqrt(tradingdays))
     
     return sharperatio 
+
+# The Maximum Drawdown is the maximum percentage decrease in value from the most recent peak to the current price across the whole testing period. 
+# This is a measure of how much one could loose if they implemented this strategy at the peak and exited at the bottom.
 
 def MDD(returns):
     
