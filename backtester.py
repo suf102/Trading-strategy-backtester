@@ -4,7 +4,10 @@ import numpy    as np
 import random
 from numba import jit, njit, types, vectorize, prange
 import plotly.express as plt
-import fundamentalanalysis
+import fundamentalanalysis as fa
+
+def Balancesheet(symbol):
+    fa.balance_sheet(symbol)
 
 
 def getdata(stockname,testperiod, datatype, interval1):
@@ -114,3 +117,19 @@ def Sharperatio(returns,tradingdays,rrr):
     
     return sharperatio 
 
+def MDD(returns):
+    
+    #To work out the maximum draw down we need to find the most recent peak. 
+    
+    RollingMaximum = returns.rolling(returns.shape[0],min_periods=1).max()
+    
+    # Then work out the percentage loss in returns between the peak at the current period
+            
+    DailyDrawdown = (returns-RollingMaximum)/RollingMaximum
+    
+    #Find the maximum(minimum because we are looking for the biggest decrease) drop across the whole back testing period.  
+        
+    MaximumDrawDown = DailyDrawdown.min()
+    
+    return MaximumDrawDown
+    
