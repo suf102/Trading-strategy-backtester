@@ -88,6 +88,8 @@ The win rate takes the number of buy signals and after a buy signal does your re
 
 The Sharpe ratio of a strategy is a ratio that expressed the difference between the guaranteed rate of return and returns from the strategy in question. Formally it is annualized rate of return minus the guaranteed rate of return (often the annual return on US 10 year treasury bonds, but in this case it is just entered by the user) divided by the annualized standard deviation. 
 
+### Maximum Drawdown 
+
 ## The graphs
 
 I have included these to show how the returns will change over time with SMA, EMA and XMA. I have also included the the RSI at any given time, and lastly a graph of the close price with the various moving averages superimposed on top. 
