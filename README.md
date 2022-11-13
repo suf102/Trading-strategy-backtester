@@ -11,7 +11,7 @@ This file contains the code that will run the backtests and produce metrics the 
 # Technical Analysis strategy tester
 
 See Trading_Strategy_Backtester.ipynb 
-### Note: This is not an endorsement of technical analysis, rather this is simply an interactive piece to let people see how those strategies would fare with various parameters.
+### Note: This is not an endorsement of technical analysis, this is simply an interactive piece to let people see how those strategies would fare with various parameters.
 
 ## The strategies 
 
