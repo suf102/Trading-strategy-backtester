@@ -1,8 +1,6 @@
 # Trading Strategy Backtester
 
 This repository contains the code from my trading strategy backtester, this was originally based on the backtester by @filthyquant on tiktok, I have adapted his code and added to it. The aim of this ongoing project is to explore the different kinds of trading strategies and to judge them based on their performance. The project initially started as a way of showing that various technical analysis strategies do not function very well. I have since expanded it to include a range of tools for analyzing the performance of strategies. I have also recreated the analysis of a momentum strategy by Antonacci(2013). This is an ongoing project and additional strategies will be added periodically. 
-## Edit:
-### There are now three files in this backtester, the first is Backtester.py this contains the testing and metric producing code. In Momentum_Strategy.ipynb, I have implemented a time series momentum strategy taken from a paper on absoloute momentum. Lastly Trading_Strategy_Backtester, where I have implemented a few common strategies TA, just to showcase their actual performance. 
 # Backtester.py
 
 This file contains the code that will run the backtests and produce metrics the performance of the trading strategies. The Metrics that I have included thus far are, final returns, win rate, Sharpe Ration and Maximum Drawdown. It also includes two backtesters, the first of which takes the signals and has one sell to cash, the other has one sell and purchase US treasury Bills for one month. 
