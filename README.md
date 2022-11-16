@@ -1,7 +1,6 @@
 # Trading Strategy Backtester
 
-I have coded up a backtester you can use to see how different trading strategies work and how well they will perform. This was originally based on the backtester by @filthyquant on tiktok.
-I have tried to comment the code in such a way that someone with relatively little familiarity with code could try and adapt or add their own strategies. 
+This repository contains the code from my trading strategy backtester, this was originally based on the backtester by @filthyquant on tiktok, I have adapted his code and added to it. The aim of this ongoing project is to explore the different kinds of trading strategies and to judge them based on their performance. The project initially started as a way of showing that various technical analysis strategies do not function very well. I have since expanded it to include a range of tools for analyzing the performance of strategies. I have also recreated the analysis of a momentum strategy by Antonacci(2013). My plan is to include more strategies in the future 
 ## Edit:
 ### There are now three files in this backtester, the first is Backtester.py this contains the testing and metric producing code. In Momentum_Strategy.ipynb, I have implemented a time series momentum strategy taken from a paper on absoloute momentum. Lastly Trading_Strategy_Backtester, where I have implemented a few common strategies TA, just to showcase their actual performance. 
 # Backtester.py
@@ -105,7 +104,7 @@ The coin flip might do really well or really badly when you run it, so to get an
 
 See Momentum_Strategy.ipynb
 
-This backtester looks to implement the strategy layed out in file:///Users/sufyansaleem/Downloads/SSRN-id2244633.pdf.
+This backtester looks to implement the strategy layed out in https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2244633.
 
 ## The Strategy
 
